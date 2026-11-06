@@ -1,58 +1,257 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" type="image/x-icon" href="newtabicon.ico">
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>New Tab</title>
+  <link rel="icon" type="image/x-icon" href="newtabicon.ico">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>snipedbysno</title>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
   <style>
-    :root{
-      --bg:#000000; --card:#001200; --muted:#a3b3a3; --accent:#57ff57;
-      --glass: rgba(255,255,255,0.03);
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial;color:#eaffea}
-    body{
-      background: radial-gradient(800px 400px at 10% 20%, rgba(87,255,87,0.08), transparent),
-                  radial-gradient(700px 300px at 90% 80%, rgba(20,255,20,0.05), transparent),
-                  linear-gradient(180deg,#000000,#001a00);
-      display:flex;align-items:center;justify-content:center;padding:32px;
+    * {
+      box-sizing: border-box;
     }
 
-    .wrap{width:100%;max-width:420px}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border:1px solid rgba(255,255,255,0.05);padding:28px;border-radius:14px;box-shadow:0 18px 40px rgba(0,30,0,0.8)}
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: Inter, sans-serif;
+      color: white;
+    }
 
-    .profile{display:flex;flex-direction:column;align-items:center;text-align:center}
-    .avatar{width:120px;height:120px;border-radius:18px;overflow:hidden;box-shadow:0 8px 24px rgba(0,30,0,0.8);margin-bottom:14px}
-    .avatar img{width:100%;height:100%;object-fit:cover;border-radius:inherit;display:block}
-    h1{margin:0;font-size:20px;letter-spacing:0.2px}
-    .handle{color:var(--muted);font-size:13px;margin-top:6px}
+    body {
+      background:
+        radial-gradient(
+          800px 450px at 10% 15%,
+          rgba(255, 0, 0, 0.20),
+          transparent
+        ),
+        radial-gradient(
+          700px 400px at 90% 85%,
+          rgba(180, 0, 0, 0.22),
+          transparent
+        ),
+        linear-gradient(
+          135deg,
+          #000000,
+          #170000,
+          #050000,
+          #000000
+        );
 
-    .search-row{display:flex;gap:8px;margin-top:20px;width:100%}
-    .search-row input{flex:1;padding:10px 12px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:inherit;font-size:14px}
-    .search-row button{padding:10px 12px;border-radius:10px;border:none;background:var(--accent);color:#001a00;font-weight:700;cursor:pointer}
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 32px;
+    }
 
-    @media (max-width:460px){.card{padding:20px}.avatar{width:98px;height:98px}}
+    .wrap {
+      width: 100%;
+      max-width: 420px;
+    }
+
+    .card {
+      background: rgba(15, 0, 0, 0.75);
+      border: 1px solid rgba(255, 30, 30, 0.18);
+      padding: 28px;
+      border-radius: 16px;
+
+      box-shadow:
+        0 18px 50px rgba(0, 0, 0, 0.8),
+        0 0 35px rgba(255, 0, 0, 0.08);
+    }
+
+    .profile {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 22px;
+      overflow: hidden;
+      margin-bottom: 16px;
+
+      border: 2px solid rgba(255, 0, 0, 0.5);
+
+      box-shadow:
+        0 0 15px rgba(255, 0, 0, 0.35),
+        0 8px 24px rgba(0, 0, 0, 0.8);
+    }
+
+    .avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+    }
+
+    .handle {
+      color: #ff4545;
+      font-size: 13px;
+      margin-top: 6px;
+    }
+
+    .search-row {
+      display: flex;
+      gap: 8px;
+      margin-top: 24px;
+      width: 100%;
+    }
+
+    .search-row input {
+      flex: 1;
+      min-width: 0;
+      padding: 12px;
+      border-radius: 10px;
+
+      border: 1px solid rgba(255, 0, 0, 0.25);
+      background: rgba(0, 0, 0, 0.5);
+
+      color: white;
+      font-size: 14px;
+      outline: none;
+    }
+
+    .search-row input:focus {
+      border-color: #ff3030;
+      box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+    }
+
+    .search-row button {
+      padding: 10px 15px;
+      border-radius: 10px;
+      border: none;
+
+      background: #d90000;
+      color: white;
+
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .search-row button:hover {
+      background: #ff2020;
+      box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
+    }
+
+    @media (max-width: 460px) {
+      .card {
+        padding: 20px;
+      }
+
+      .avatar {
+        width: 98px;
+        height: 98px;
+      }
+    }
   </style>
 </head>
-<body>
-  <div class="wrap card">
-    <div class="profile">
-      <div class="avatar">
-        <img src="https://cdn.pfps.gg/pfps/9652-gir-invader-zim.png" alt="Profile picture" />
-      </div>
-      <h1>z1mm</h1>
-      <div class="handle">@z1mm</div>
 
-      <!-- Google search bar -->
-      <form class="search-row" action="https://www.google.com/search" method="GET" target="_blank">
-        <input name="q" type="search" placeholder="Search Google..." aria-label="Search query" />
+<body>
+
+  <div class="wrap card">
+
+    <div class="profile">
+
+      <div class="avatar">
+        <img
+          id="discordAvatar"
+          src="https://cdn.discordapp.com/embed/avatars/0.png"
+          alt="Discord Profile Picture"
+        >
+      </div>
+
+      <h1>snipedbysno</h1>
+
+      <div class="handle">@snipedbysno</div>
+
+      <form
+        class="search-row"
+        action="https://www.google.com/search"
+        method="GET"
+        target="_blank"
+      >
+        <input
+          name="q"
+          type="search"
+          placeholder="Search Google..."
+          aria-label="Search Google"
+        >
+
         <button type="submit">Search</button>
       </form>
+
     </div>
+
   </div>
+
+  <script>
+    const DISCORD_ID = "1122671474554187846";
+
+    const avatar = document.getElementById("discordAvatar");
+
+    async function updateDiscordAvatar() {
+      try {
+        const response = await fetch(
+          `https://api.lanyard.rest/v1/users/${DISCORD_ID}`
+        );
+
+        if (!response.ok) {
+          throw new Error("Could not retrieve Discord profile");
+        }
+
+        const result = await response.json();
+
+        if (!result.success || !result.data.discord_user) {
+          throw new Error("Discord user unavailable");
+        }
+
+        const user = result.data.discord_user;
+
+        if (user.avatar) {
+          const extension = user.avatar.startsWith("a_")
+            ? "gif"
+            : "png";
+
+          const avatarURL =
+            `https://cdn.discordapp.com/avatars/${DISCORD_ID}/${user.avatar}.${extension}?size=256`;
+
+          if (avatar.src !== avatarURL) {
+            avatar.src = avatarURL;
+          }
+        }
+
+      } catch (error) {
+        console.error("Discord avatar update failed:", error);
+      }
+    }
+
+    // Update immediately when the page opens.
+    updateDiscordAvatar();
+
+    // Check for avatar changes every 60 seconds.
+    setInterval(updateDiscordAvatar, 60000);
+
+  </script>
+
 </body>
 </html>
