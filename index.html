@@ -1,213 +1,131 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" type="image/x-icon" href="newtabicon.ico">
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>snipedbysno</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/x-icon" href="newtabicon.ico">
 
   <style>
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
-    html, body {
-      height: 100%;
-      margin: 0;
-      font-family: Inter, sans-serif;
-      color: white;
-    }
-
     body {
-      background:
-        radial-gradient(
-          800px 450px at 10% 15%,
-          rgba(255, 0, 0, 0.20),
-          transparent
-        ),
-        radial-gradient(
-          700px 400px at 90% 85%,
-          rgba(180, 0, 0, 0.22),
-          transparent
-        ),
-        linear-gradient(
-          135deg,
-          #000000,
-          #170000,
-          #050000,
-          #000000
-        );
-
+      min-height: 100vh;
       display: flex;
-      align-items: center;
       justify-content: center;
-      padding: 32px;
-    }
-
-    .wrap {
-      width: 100%;
-      max-width: 420px;
-    }
-
-    .card {
-      background: rgba(15, 0, 0, 0.75);
-      border: 1px solid rgba(255, 30, 30, 0.18);
-      padding: 28px;
-      border-radius: 16px;
-
-      box-shadow:
-        0 18px 50px rgba(0, 0, 0, 0.8),
-        0 0 35px rgba(255, 0, 0, 0.08);
-    }
-
-    .profile {
-      display: flex;
-      flex-direction: column;
       align-items: center;
+      font-family: Arial, sans-serif;
+      color: white;
+      background:
+        radial-gradient(ellipse at center, #350000 0%, transparent 65%),
+        linear-gradient(135deg, #000000, #160000, #000000);
+    }
+
+    .container {
       text-align: center;
+      padding: 40px;
+      width: 90%;
+      max-width: 450px;
+      background: rgba(0, 0, 0, 0.75);
+      border: 1px solid rgba(255, 0, 0, 0.4);
+      border-radius: 18px;
+      box-shadow: 0 0 35px rgba(255, 0, 0, 0.2);
     }
 
     .avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 22px;
-      overflow: hidden;
-      margin-bottom: 16px;
-
-      border: 2px solid rgba(255, 0, 0, 0.5);
-
-      box-shadow:
-        0 0 15px rgba(255, 0, 0, 0.35),
-        0 8px 24px rgba(0, 0, 0, 0.8);
-    }
-
-    .avatar img {
-      width: 100%;
-      height: 100%;
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
       object-fit: cover;
-      display: block;
+      border: 3px solid #ff2020;
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.5);
+      margin-bottom: 20px;
     }
 
     h1 {
-      margin: 0;
-      font-size: 22px;
-      font-weight: 800;
-      letter-spacing: 0.5px;
+      font-size: 32px;
+      letter-spacing: 2px;
+      margin-bottom: 8px;
     }
 
-    .handle {
-      color: #ff4545;
-      font-size: 13px;
-      margin-top: 6px;
+    .username {
+      color: #ff5555;
+      margin-bottom: 30px;
+      font-size: 15px;
     }
 
-    .search-row {
+    .search {
       display: flex;
-      gap: 8px;
-      margin-top: 24px;
       width: 100%;
     }
 
-    .search-row input {
+    .search input {
       flex: 1;
       min-width: 0;
-      padding: 12px;
-      border-radius: 10px;
-
-      border: 1px solid rgba(255, 0, 0, 0.25);
-      background: rgba(0, 0, 0, 0.5);
-
+      padding: 13px;
+      background: #111;
       color: white;
-      font-size: 14px;
+      border: 1px solid #550000;
+      border-radius: 8px 0 0 8px;
       outline: none;
+      font-size: 14px;
     }
 
-    .search-row input:focus {
-      border-color: #ff3030;
-      box-shadow: 0 0 10px rgba(255, 0, 0, 0.2);
+    .search input:focus {
+      border-color: #ff2020;
     }
 
-    .search-row button {
-      padding: 10px 15px;
-      border-radius: 10px;
-      border: none;
-
-      background: #d90000;
+    .search button {
+      padding: 13px 17px;
+      background: #b00000;
       color: white;
-
-      font-weight: 700;
+      border: none;
+      border-radius: 0 8px 8px 0;
       cursor: pointer;
       transition: 0.2s;
     }
 
-    .search-row button:hover {
-      background: #ff2020;
-      box-shadow: 0 0 15px rgba(255, 0, 0, 0.4);
-    }
-
-    @media (max-width: 460px) {
-      .card {
-        padding: 20px;
-      }
-
-      .avatar {
-        width: 98px;
-        height: 98px;
-      }
+    .search button:hover {
+      background: #ed0000;
     }
   </style>
 </head>
 
 <body>
+  <div class="container">
+    <img
+      id="discordAvatar"
+      class="avatar"
+      src="https://cdn.discordapp.com/avatars/1122671474554187846/87b7eacbe0d54e9446b28184da8be449.webp?size=1024"
+      alt="Discord Profile Picture"
+    >
 
-  <div class="wrap card">
+    <h1>snipedbysno</h1>
+    <p class="username">@snipedbysno</p>
 
-    <div class="profile">
-
-      <div class="avatar">
-        <img
-          id="discordAvatar"
-          src="https://cdn.discordapp.com/embed/avatars/0.png"
-          alt="Discord Profile Picture"
-        >
-      </div>
-
-      <h1>snipedbysno</h1>
-
-      <div class="handle">@snipedbysno</div>
-
-      <form
-        class="search-row"
-        action="https://www.google.com/search"
-        method="GET"
-        target="_blank"
+    <form class="search" action="https://www.google.com/search" method="GET">
+      <input
+        type="text"
+        name="q"
+        placeholder="Search Google..."
+        autocomplete="off"
       >
-        <input
-          name="q"
-          type="search"
-          placeholder="Search Google..."
-          aria-label="Search Google"
-        >
-
-        <button type="submit">Search</button>
-      </form>
-
-    </div>
-
+      <button type="submit">Search</button>
+    </form>
   </div>
 
   <script>
     const DISCORD_ID = "1122671474554187846";
 
     const avatar = document.getElementById("discordAvatar");
+
+    // Your current avatar is the fallback.
+    const FALLBACK_AVATAR =
+      "https://cdn.discordapp.com/avatars/1122671474554187846/87b7eacbe0d54e9446b28184da8be449.webp?size=1024";
 
     async function updateDiscordAvatar() {
       try {
@@ -216,42 +134,38 @@
         );
 
         if (!response.ok) {
-          throw new Error("Could not retrieve Discord profile");
+          throw new Error("Lanyard could not find this Discord user.");
         }
 
         const result = await response.json();
-
-        if (!result.success || !result.data.discord_user) {
-          throw new Error("Discord user unavailable");
-        }
-
         const user = result.data.discord_user;
+
+        if (!user || !user.id) {
+          throw new Error("Discord user information unavailable.");
+        }
 
         if (user.avatar) {
           const extension = user.avatar.startsWith("a_")
             ? "gif"
-            : "png";
+            : "webp";
 
-          const avatarURL =
-            `https://cdn.discordapp.com/avatars/${DISCORD_ID}/${user.avatar}.${extension}?size=256`;
+          const newAvatar =
+            `https://cdn.discordapp.com/avatars/${DISCORD_ID}/${user.avatar}.${extension}?size=1024`;
 
-          if (avatar.src !== avatarURL) {
-            avatar.src = avatarURL;
+          if (avatar.src !== newAvatar) {
+            avatar.src = newAvatar;
           }
         }
-
       } catch (error) {
-        console.error("Discord avatar update failed:", error);
+        console.log("Using saved avatar:", error.message);
       }
     }
 
-    // Update immediately when the page opens.
+    // Check immediately when the website loads.
     updateDiscordAvatar();
 
-    // Check for avatar changes every 60 seconds.
+    // Check again every 60 seconds.
     setInterval(updateDiscordAvatar, 60000);
-
   </script>
-
 </body>
 </html>
